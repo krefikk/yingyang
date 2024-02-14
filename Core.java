@@ -2,11 +2,14 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.util.ArrayList;
+import java.lang.Math;
 
 class Core extends JPanel {
 
     //Adjusting the starting points of balls and other variables
-    protected int xw = Interface.frameWidth / 2 - 40, yw = Interface.frameHeight / 2, xb = Interface.frameWidth / 2 + 40, yb = Interface.frameHeight / 2;
+    protected int xw, xb;
+    protected int yw, yb;
+    private int vx = 10, vy = 3;
     private int bounds;
     private int rows, columns, tileSize;
     private ArrayList<ColoredShape> tiles;
@@ -20,6 +23,14 @@ class Core extends JPanel {
         this.bounds = tileSize / 2;
         this.tiles = new ArrayList<>();
         this.balls = new ArrayList<>();
+
+        //Randomizing location and speed values
+        xw = (int) Math.floor(Math.random() *(((Interface.frameWidth / 2) - tileSize) - tileSize + 1) + tileSize);
+        xb = (int) Math.floor(Math.random() *((Interface.frameWidth - tileSize) - (Interface.frameWidth / 2) + tileSize + 1) + (Interface.frameWidth / 2) + tileSize);
+        yw = (int) Math.floor(Math.random() *((Interface.frameHeight - tileSize) - tileSize + 1) + tileSize);
+        yb = (int) Math.floor(Math.random() *((Interface.frameHeight - tileSize) - tileSize + 1) + tileSize);
+        vx = (Math.random() < 0.5) ? vx : -1*vx;
+        vy = (Math.random() < 0.5) ? vy : -1*vy;
 
         // Creating tiles
         for (int i = 0; i < rows; i++) {
@@ -35,8 +46,8 @@ class Core extends JPanel {
         }
 
         // Creating balls
-        balls.add(new Ball(xw, yw, bounds, Color.WHITE, 10, 3));
-        balls.add(new Ball(xb, yb, bounds, Color.BLACK, 10, -3));
+        balls.add(new Ball(xw, yw, bounds, Color.WHITE, vx, vy));
+        balls.add(new Ball(xb, yb, bounds, Color.BLACK, vx, vy));
 
         // Animation part
         Timer timer = new Timer(10, new ActionListener() {
