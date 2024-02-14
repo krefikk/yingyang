@@ -14,7 +14,7 @@ public class Interface extends JFrame {
         setLocationRelativeTo(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLayout(new BorderLayout());
-        setTitle("Bouncing Ball");
+        setTitle("Ying Yang");
         add(new Core(frameHeight / tileSize, frameWidth / tileSize, tileSize));
         setVisible(true);
 
