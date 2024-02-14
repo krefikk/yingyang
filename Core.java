@@ -24,11 +24,11 @@ class Core extends JPanel {
         this.tiles = new ArrayList<>();
         this.balls = new ArrayList<>();
 
-        //Randomizing location and speed values
-        xw = (int) Math.floor(Math.random() *(((Interface.frameWidth / 2) - tileSize) - tileSize + 1) + tileSize);
-        xb = (int) Math.floor(Math.random() *((Interface.frameWidth - tileSize) - (Interface.frameWidth / 2) + tileSize + 1) + (Interface.frameWidth / 2) + tileSize);
-        yw = (int) Math.floor(Math.random() *((Interface.frameHeight - tileSize) - tileSize + 1) + tileSize);
-        yb = (int) Math.floor(Math.random() *((Interface.frameHeight - tileSize) - tileSize + 1) + tileSize);
+        //Randomizing starting point and speed values
+        xw = (int) Math.floor(Math.random() *(((Interface.frameWidth / 2) - tileSize*2) - tileSize*2 + 1) + tileSize*2);
+        xb = (int) Math.floor(Math.random() *((Interface.frameWidth - tileSize) - (Interface.frameWidth / 2 + tileSize) + 1) + (Interface.frameWidth / 2 + tileSize));
+        yw = (int) Math.floor(Math.random() *((Interface.frameHeight - tileSize*2) - tileSize*2 + 1) + tileSize*2);
+        yb = (int) Math.floor(Math.random() *((Interface.frameHeight - tileSize*2) - tileSize*2 + 1) + tileSize*2);
         vx = (Math.random() < 0.5) ? vx : -1*vx;
         vy = (Math.random() < 0.5) ? vy : -1*vy;
 
