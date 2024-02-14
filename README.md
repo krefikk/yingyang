@@ -6,6 +6,7 @@ Only Java. No external library used.
 
 # Usage
 Open a command prompt window and go to the directory where you downloaded the Ying Yang:
+
 ```
 javac Interface.java
 ```
