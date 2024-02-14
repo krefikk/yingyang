@@ -5,8 +5,7 @@ The eternal battle of black and white, constructed with Java.
 Only Java. No external library used.
 
 # Usage
-Open a command prompt window and go to the directory where you downloaded the ying yang.
-
+Open a command prompt window and go to the directory where you downloaded the Ying Yang:
 ```
 javac Interface.java
 ```
